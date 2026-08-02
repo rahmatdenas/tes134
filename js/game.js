@@ -454,12 +454,17 @@ function setupGame4() {
     document.body.appendChild(overlay);
 
     // Animasi masuk
-    setTimeout(() => overlay.classList.add('show'), 50);
+  setTimeout(() => overlay.classList.add('show'), 50);
 
+    // 1. Ganti spasi dengan underscore agar dikenali server Wikimedia
+    let safeFilename = targetGameData.imageFilename.replace(/ /g, '_');
+    
     // Resolusi diatur ke width 800 sesuai spesifikasi
-    let imgUrl = `${COMMONS_WIKI_URL_PREF}Special:FilePath/${encodeURIComponent(targetGameData.imageFilename)}?width=800`;
+    let imgUrl = `${COMMONS_WIKI_URL_PREF}Special:FilePath/${encodeURIComponent(safeFilename)}?width=800`;
+    
     let imgTemp = new Image();
-    imgTemp.crossOrigin = "Anonymous"; 
+    // 2. HAPUS atau comment baris crossOrigin di bawah ini
+    // imgTemp.crossOrigin = "Anonymous"; 
     
     imgTemp.onload = function() {
         let ratio = imgTemp.naturalWidth / imgTemp.naturalHeight;
