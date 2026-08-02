@@ -573,7 +573,7 @@ function renderPuzzleBoard(imgUrl, cols, rows, totalPieces, ratio, overlay) {
                     board.classList.add('solved');
                     gameScore++;
                     document.getElementById('puzzle-title').innerHTML = `Restorasi Berhasil! 🎉<br><span style="font-size:1rem; font-weight:normal;">Mengarahkan ke lokasi peta...</span>`;
-                    document.getElementById('puzzle-close-btn').style.display = 'none';
+                    document.getElementById('puzzle-close-btn').style.visibility = 'hidden';
                     
                     // Delay sejenak biar pemain menikmati gambarnya yang utuh
                     setTimeout(() => { tutupPuzzle(true); }, 2500);
