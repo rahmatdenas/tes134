@@ -460,7 +460,7 @@ function setupGame4() {
     let safeFilename = targetGameData.imageFilename.replace(/ /g, '_');
     
     // Resolusi diatur ke width 800 sesuai spesifikasi
-    let imgUrl = `${COMMONS_WIKI_URL_PREF}Special:FilePath/${encodeURIComponent(safeFilename)}?width=800`;
+    let imgUrl = `${COMMONS_WIKI_URL_PREF}Special:FilePath/${encodeURIComponent(safeFilename)}?width=500`;
     
     let imgTemp = new Image();
     // 2. HAPUS atau comment baris crossOrigin di bawah ini
