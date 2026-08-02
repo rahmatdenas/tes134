@@ -418,7 +418,7 @@ function injectPuzzleCSS() {
             background: #222; border: 4px solid #fff; border-radius: 8px; padding: 2px;
             transition: gap 0.5s ease, border-color 0.5s ease;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 90vw; max-width: 600px;
+margin: 0 auto; /* Memastikan posisi di tengah */
         }
         #puzzle-board.solved {
             gap: 0px !important; border-color: #5cb85c;
@@ -507,9 +507,28 @@ function renderPuzzleBoard(imgUrl, cols, rows, totalPieces, ratio, overlay) {
     let targetState = Array.from({length: totalPieces}, (_, i) => i);
     let selectedSlot = null;
     
+    // --- LOGIKA MENCEGAH OVERFLOW LAYAR ---
+    // Batas maksimal ukuran board (90% lebar layar atau maks 600px, 65% tinggi layar)
+    const maxBoardWidth = Math.min(window.innerWidth * 0.9, 600); 
+    const maxBoardHeight = window.innerHeight * 0.65; // Disisakan 35% untuk judul & tombol
+
+    let finalWidth, finalHeight;
+
+    if (maxBoardWidth / ratio <= maxBoardHeight) {
+        // Gambar Cenderung Persegi / Panorama (Lebar yang jadi patokan utama)
+        finalWidth = maxBoardWidth;
+        finalHeight = maxBoardWidth / ratio;
+    } else {
+        // Gambar Potret Panjang (Tinggi yang jadi patokan utama agar tidak tembus bawah layar)
+        finalHeight = maxBoardHeight;
+        finalWidth = maxBoardHeight * ratio;
+    }
+    // ---------------------------------------
+    
+    // Perhatikan perubahan pada <div id="puzzle-board"...> di bawah ini
     overlay.innerHTML = `
         <div id="puzzle-title">Tantangan Puncak: Restorasi Arsip<br><span style="font-size:0.9rem; font-weight:normal;">Klik kotak untuk menukar posisi visual!</span></div>
-        <div id="puzzle-board" style="aspect-ratio: ${ratio}; grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div>
+        <div id="puzzle-board" style="width: ${finalWidth}px; height: ${finalHeight}px; grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div>
         <button id="puzzle-close-btn">Menyerah & Lewati</button>
     `;
     
