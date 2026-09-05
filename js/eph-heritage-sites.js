@@ -446,8 +446,8 @@ try {
         if (btnArt) btnArt.textContent = `Artikel (${persentase}%)`;
       }
       
-      if (btnImg) btnImg.textContent = 'Memiliki Gambar';
-      if (btnArt) btnArt.textContent = 'Memiliki Artikel';
+      if (btnImg) btnImg.textContent = 'Jelajahi Gambar';
+      if (btnArt) btnArt.textContent = 'Jelajahi Artikel';
 
       if (activeFeatures.has('image') || activeFeatures.has('article')) {
         applyIntersectionFilter(true); 
