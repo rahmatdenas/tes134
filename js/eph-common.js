@@ -6,7 +6,7 @@ const COMMONS_API_URL         = 'https://commons.wikimedia.org/w/api.php';
 const YEAR_PRECISION          = '9';
 const OSM_LAYER_URL           = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const OSM_LAYER_ATTRIBUTION   = 'Base map © <a href="https://www.openstreetmap.org/copyright" target="_blank">OSM contributors</a>';
-const CARTO_LAYER_URL         = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png';
+const CARTO_LAYER_URL         = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png?key=cb1_2xq9_1_82a33e4057c84236e108e347';
 const CARTO_LAYER_ATTRIBUTION = 'Base map © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a> (data), <a href="https://carto.com/" target="_blank">CARTO</a> (style)';
 const TILE_LAYER_MAX_ZOOM     = 18;
 
