@@ -332,11 +332,11 @@ if (indexList) {
   let btnArt = document.getElementById('btn-article') || document.querySelector('[data-filter="article"]');
   
   if (btnImg) { 
-    btnImg.textContent = 'Memiliki Gambar';
+    btnImg.textContent = 'Jelajahi Gambar';
     btnImg.classList.add('disabled'); 
   }
   if (btnArt) { 
-    btnArt.textContent = 'Memiliki Artikel';
+    btnArt.textContent = 'Jelajahi Artikel';
     btnArt.classList.add('disabled'); 
   }
   if (btnAll) {
